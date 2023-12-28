@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border>
+        <thead>
+            <tr>
+                <td><strong>Kode</strong></td>
+                <td><strong>Barang</strong></td>
+                <td><strong>Harga</strong></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>Barang A</td>
+                <td>10000</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Barang B</td>
+                <td>20000</td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>Barang C</td>
+                <td>30000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>Inputan User</h1>
+    <table border>
+        <tr>
+            <td>Masukkan Kode</td>
+            <td>:</td>
+            <td><input type="text" name="in_code" id="in_code"></td>
+        </tr>
+        <tr>
+            <td>Banyaknya Barang</td>
+            <td>:</td>
+            <td><input type="text" name="in_qty" id="in_qty"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><button onclick="onButtonClick()">Submit</button></td>
+        </tr>
+    </table>
+
+    <script>
+
+        let qty = document.getElementById("in_qty");
+        let code = document.getElementById("in_code");
+
+
+        function onButtonClick() {
+            let price = 0;
+            let total = 0;
+
+            if (code.value == "001") {
+                price = 10000
+            } else if (code.value == "002") {
+                price = 20000
+            } else if (code.value == "003") {
+                price = 30000
+            } else {
+                alert("Kode barang tidak ditemukan");
+            }
+
+            if (price != 0) {
+                total = price * parseInt(qty.value);
+
+                alert(`Total pembayaran adalah ${total}`);
+                let cash = window.prompt("Masukkan uang tunai");
+
+                if (cash > total)
+                    alert(`Total kembalian anda adalah ${cash - total}`);
+                else
+                    alert('Uang anda kurang');
+            }
+        }
+
+    </script>
+</body>
+
+</html>
